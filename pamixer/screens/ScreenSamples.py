@@ -96,7 +96,6 @@ class ScreenSamples():
     def draw_help(self, win):
         win.attron(curses.A_BOLD)
         win.addstr("  Keys - Samples\n")
-        win.addstr("-----------------------------------------")
         win.attroff(curses.A_BOLD)
         win.addstr("""
        j / Up\t\t: Move Cursor up

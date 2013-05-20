@@ -6,16 +6,17 @@ MODE_NORMAL = 0
 MODE_MOVE = 1
 
 state_colors = { }
-state_colors[PA_SINK_RUNNING] = 3
-state_colors[PA_SINK_SUSPENDED] = 4
-state_colors[PA_SINK_IDLE] = 1
+state_colors[PA_SINK_RUNNING] = 4
+state_colors[PA_SINK_SUSPENDED] = 5
+state_colors[PA_SINK_IDLE] = 2
 
 class ScreenClients():
 
     def __init__(self):
 
         self.active_client = -1
-        self.clientchars = "wertyuiopWERTYUIOP"
+        #self.clientchars = "wertyuiopWERTYUIOP"
+        self.clientchars = "!'#$%&/()=wertyuiopWERTYUIOP"
 
         self.show_data = True
 
@@ -82,15 +83,15 @@ class ScreenClients():
                 wclientlist.addstr(" | ")
             wclientlist.addstr(self.clientchars[i] + ": ")
 
-            wclientlist.addstr(client.name, curses.A_BOLD if i == self.active_client else 0)
+            wclientlist.addstr(client.name, curses.A_BOLD  if i == self.active_client else 0)
 
             if client.index in inputcount and inputcount[client.index] > 0:
                 wclientlist.addstr(" [" + str(inputcount[client.index]) + "]")
 
             i += 1
 
-        if recurse and self.active_client < len(par.pa_clients):
-            par.pa_clients.values()[self.active_client].redraw(True)
+#        if recurse and self.active_client < len(par.pa_clients):
+#            par.pa_clients.values()[self.active_client].redraw(True)
 
 
         return
@@ -138,7 +139,6 @@ class ScreenClients():
     def draw_help(self, win):
         win.attron(curses.A_BOLD)
         win.addstr("  Keys - Clients\n")
-        win.addstr("-----------------------------------------")
         win.attroff(curses.A_BOLD)
         win.addstr("""
        h / Left\t\t: Move Cursor left

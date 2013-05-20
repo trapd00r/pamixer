@@ -69,13 +69,22 @@ class ScreenHelp():
             if self.scrolly < 0:
                 self.scrolly = 0
             return True
+        elif event == ord('J'):
+            self.scrolly += 5
+            if self.scrolly > 150:
+                self.scrollt = 150
+            return True
+        elif event == ord('K'):
+            self.scrolly -= 5
+            if self.scrolly > 0:
+                self.scrollt = 0
+            return True
 
         return False
 
     def draw_help(self, win):
         win.attron(curses.A_BOLD)
         win.addstr("  Keys - Global\n")
-        win.addstr("-----------------------------------------")
         win.attroff(curses.A_BOLD)
         win.addstr("""
        q\t\t: Quit
@@ -96,7 +105,6 @@ class ScreenHelp():
 
         win.attron(curses.A_BOLD)
         win.addstr("  Keys - Help\n")
-        win.addstr("-----------------------------------------")
         win.attroff(curses.A_BOLD)
         win.addstr("""
 

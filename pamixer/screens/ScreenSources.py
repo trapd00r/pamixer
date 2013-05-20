@@ -5,8 +5,8 @@ class ScreenSources():
     def __init__(self):
 
         # 0 = regular, 1 = monitors, 2 = both
-        self.active_type = 0
-        self.typechars = "wer"
+        self.active_type = 2
+        self.typechars = "123456789"
         self.typenames = [ "Regular", "Monitors", "Both" ]
 
         self.show_data = True
@@ -100,7 +100,6 @@ class ScreenSources():
     def draw_help(self, win):
         win.attron(curses.A_BOLD)
         win.addstr("  Keys - Sources\n")
-        win.addstr("-----------------------------------------")
         win.attroff(curses.A_BOLD)
         win.addstr("""
        h / Left\t\t: Move Cursor left

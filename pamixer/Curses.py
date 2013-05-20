@@ -25,7 +25,7 @@ class Curses():
             self.modes[0].helps.append(self.modes[i].draw_help)
 
         # start at the  sink screen
-        self.active_mode = 1
+        self.active_mode = 2
         self.last_mode = 1
         self.switch_mode = None
 

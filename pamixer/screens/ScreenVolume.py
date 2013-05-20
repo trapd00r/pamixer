@@ -5,7 +5,7 @@ class ScreenVolume():
     def __init__(self):
 
         self.active_volume = None
-        self.sinkchars = "wertyuiopWERTYUIOP"
+        self.sinkchars = "!'#$%&/()=wertyuiopWERTYUIOP"
 
         self.win = None
         self.wcontrols = None
@@ -65,7 +65,6 @@ class ScreenVolume():
     def draw_help(self, win):
         win.attron(curses.A_BOLD)
         win.addstr("  Keys - Sink Inputs\n")
-        win.addstr("-----------------------------------------")
         win.attroff(curses.A_BOLD)
         win.addstr("""
        h / Left\t\t: Move Cursor left
